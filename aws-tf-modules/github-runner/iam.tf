@@ -64,3 +64,9 @@ resource "aws_iam_policy" "github_runner_iam_policy" {
 EOF
 }
 
+
+resource "aws_iam_role_policy_attachment" "github_runner_role_policy_att" {
+  policy_arn = aws_iam_policy.github_runner_iam_policy.arn
+  role       = aws_iam_role.github_runner_iam_role.name
+}
+
